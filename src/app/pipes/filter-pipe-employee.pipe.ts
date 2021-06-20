@@ -10,7 +10,9 @@ export class FilterPipeEmployeePipe implements PipeTransform {
     return filterText
       ? value.filter(
           (e: Employee) =>
-            e.firstName.toLocaleLowerCase().indexOf(filterText) !== -1
+            (e.firstName + ' ' + e.lastName)
+              .toLocaleLowerCase()
+              .indexOf(filterText) !== -1
         )
       : value;
   }
